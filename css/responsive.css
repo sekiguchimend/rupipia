@@ -92,10 +92,15 @@
         padding: 0.5rem !important;
     }
     
-    /* フッター上のボタンをモバイル用に小さく調整 */
+    /* フッター上のボタンをモバイル用にさらに小さく調整 */
     .btn-box .btn a {
-        padding: 0.6rem 1.2rem !important;  /* パディングを小さく */
-        font-size: 1.1rem !important;  /* 文字サイズを小さく（1.3rem → 1.1rem） */
+        padding: 0.5rem 1rem !important;  /* パディングをさらに小さく */
+        font-size: 0.95rem !important;  /* 文字サイズをさらに小さく（1.1rem → 0.95rem） */
+    }
+    
+    /* 背景画像の固定表示問題を修正 */
+    .bg-slideup {
+        background-attachment: scroll !important;  /* fixedをscrollに変更 */
     }
     
     /* ヘッダーボタンをモバイル用に大きく調整 */
@@ -131,15 +136,15 @@
         padding: 1rem !important;
     }
     
-    /* FAQ調整 */
+    /* FAQ調整 - 文字サイズを小さく */
     .faq dt {
-        font-size: 1.1rem !important;
+        font-size: 0.95rem !important;  /* 質問文を小さく（1.1rem → 0.95rem） */
         padding: 0.8rem !important;
     }
     
     .faq dd {
         padding: 0.8rem !important;
-        font-size: 1.05rem !important;
+        font-size: 0.9rem !important;  /* 回答文を小さく（1.05rem → 0.9rem） */
     }
 }
 
