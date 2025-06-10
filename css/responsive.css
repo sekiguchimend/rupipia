@@ -92,10 +92,16 @@
         padding: 0.5rem !important;
     }
     
-    /* ボタンをモバイル用に調整 */
+    /* フッター上のボタンをモバイル用に小さく調整 */
     .btn-box .btn a {
-        padding: 0.8rem 1.5rem !important;
-        font-size: 1.3rem !important;  /* 文字サイズを大きく（1.1rem → 1.3rem） */
+        padding: 0.6rem 1.2rem !important;  /* パディングを小さく */
+        font-size: 1.1rem !important;  /* 文字サイズを小さく（1.3rem → 1.1rem） */
+    }
+    
+    /* ヘッダーボタンをモバイル用に大きく調整 */
+    #header-box .btn a {
+        padding: 0.5rem 1.2rem !important;  /* パディングを大きく */
+        font-size: 0.85rem !important;  /* 文字サイズを大きく */
     }
     
     /* 下部のボタン要素も確実に適用 */
