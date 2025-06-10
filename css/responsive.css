@@ -92,10 +92,15 @@
         padding: 0.5rem !important;
     }
     
-    /* フッター上のボタンをモバイル用にさらに小さく調整（px指定） */
-    .btn-box .btn a {
-        padding: 0.5rem 1rem !important;  /* パディングをさらに小さく */
-        font-size: 15px !important;  /* 文字サイズをpx指定に変更 */
+    /* フッター上のボタンをモバイル用にさらに小さく調整（px指定） - 強力な優先度 */
+    .bg-slideup .btn-box .btn a {
+        padding: 0.5rem 0.7rem !important;  /* パディングをもっと小さく */
+        font-size: 15px !important;  /* 文字サイズをもっと小さく（15px → 12px） */
+    }
+    
+    /* ボタンコンテナのフォントサイズもリセット */
+    .bg-slideup .btn-box .btn {
+        font-size: 12px !important;  /* ベースフォントサイズもリセット */
     }
     
     /* 背景画像の固定表示問題を修正 */
@@ -109,16 +114,7 @@
         font-size: 0.85rem !important;  /* 文字サイズを大きく */
     }
     
-    /* 下部のボタン要素も確実に適用 */
-    section.btn-box .btn a {
-        font-size: 1.3rem !important;  /* 文字サイズを大きく */
-        padding: 0.8rem 1.5rem !important;
-    }
-    
-    /* さらに具体的なセレクター */
-    .bg-slideup .btn-box .btn a {
-        font-size: 1.3rem !important;  /* 文字サイズを大きく */
-    }
+    /* 下部のボタン要素の古い設定は削除（小さくするため） */
     
     /* テーブルを調整 */
     table.week {
@@ -137,14 +133,19 @@
     }
     
     /* FAQ調整 - 文字サイズを小さく（px指定） */
-    .faq dt {
+    #faq .faq dt {
         font-size: 15px !important;  /* 質問文を小さく（px指定） */
         padding: 0.8rem !important;
     }
     
-    .faq dd {
+    #faq .faq dd {
         padding: 0.8rem !important;
         font-size: 14px !important;  /* 回答文を小さく（px指定） */
+    }
+    
+    /* FAQブロック全体のフォントサイズもリセット */
+    #faq .faq {
+        font-size: 14px !important;  /* ベースサイズを上書き */
     }
 }
 
