@@ -1,0 +1,203 @@
+@charset "utf-8";
+
+/* レスポンシブデザイン追加CSS */
+
+/* モバイル用追加調整 */
+@media screen and (max-width: 479px) {
+    
+    /* 見出しサイズを調整 */
+    h1 { font-size: 1.8rem !important; }
+    h2 { font-size: 1.6rem !important; }
+    h3 { font-size: 1.4rem !important; }
+    h4 { font-size: 1.2rem !important; }
+    
+    /* 本文テキストサイズを調整 */
+    p, li, dd {
+        font-size: 0.9rem !important;  /* 説明文を小さく（1rem → 0.9rem、約14.4px） */
+        line-height: 1.8 !important;
+    }
+    
+    /* るぴぴあの特徴セクションのタイトルをスマホ用に調整 */
+    .list-half .list h4 {
+        font-size: 1.4rem !important;  /* スマホ用にサイズ調整 */
+        color: rgb(44, 62, 80) !important;  /* 文字色をrgb(44, 62, 80)に戻す */
+        margin-bottom: 0.8rem !important;  /* 余白調整 */
+        font-weight: 700 !important;  /* さらに太字に */
+    }
+    
+    .list-half .list h4 span {
+        color: var(--primary-color) !important;  /* ピンク色 */
+        font-size: 0.65em !important;  /* サイズ調整 */
+        margin-top: 0.2rem !important;  /* 余白調整 */
+    }
+    
+    /* お知らせバナーの文字を小さく */
+    .new-top h2 {
+        font-size: 0.7rem !important;
+    }
+    
+    .new-top .text {
+        font-size: 0.8rem !important;
+    }
+    
+    .new-top .new-list {
+        font-size: 0.8rem !important;
+    }
+    
+    /* フローセクション全体の上余白を追加 */
+    #flow {
+        padding-top: 4rem !important;  /* セクション上部にマージンを追加 */
+    }
+    
+    /* ステップ番号の位置調整 */
+    .flow-box {
+        margin-top: 3rem !important;  /* 各ステップボックスの上マージン */
+        margin-bottom: 3rem !important;  /* 各ステップボックスの下マージン */
+        position: relative;  /* ステップ番号の基準点として */
+    }
+    
+    .flow-box .step-num {
+        top: -60px !important;  /* もう少し上に表示（-50px → -70px） */
+        font-size: 2.5rem !important;  /* モバイル用にサイズを少し調整 */
+        z-index: 1;  /* 他の要素に埋もれないように */
+    }
+    
+    /* お客様の声の文字サイズを小さく */
+    .list-yoko-scroll .list h4 {
+        font-size: 0.9rem !important;  /* タイトルを小さく */
+    }
+    
+    .list-yoko-scroll .list .text {
+        font-size: 0.75rem !important;  /* 本文を小さく（0.85rem → 0.7em） */
+        line-height: 1.6 !important;  /* 行間を少し広めに調 */
+    }
+    
+    /* セクション間の余白を小さく */
+    section {
+        margin-bottom: 2rem !important;
+    }
+    
+    /* 特徴セクションの調整 */
+    .list-half .list {
+        margin-bottom: 1.5rem !important;
+    }
+    
+    /* フローボックスの調整 */
+    .flow-box {
+        margin-bottom: 2rem !important;
+    }
+    
+    .flow-box .title h3 {
+        font-size: 1rem !important;
+        padding: 0.5rem !important;
+    }
+    
+    /* ボタンをモバイル用に調整 */
+    .btn-box .btn a {
+        padding: 0.8rem 1.5rem !important;
+        font-size: 1.3rem !important;  /* 文字サイズを大きく（1.1rem → 1.3rem） */
+    }
+    
+    /* 下部のボタン要素も確実に適用 */
+    section.btn-box .btn a {
+        font-size: 1.3rem !important;  /* 文字サイズを大きく */
+        padding: 0.8rem 1.5rem !important;
+    }
+    
+    /* さらに具体的なセレクター */
+    .bg-slideup .btn-box .btn a {
+        font-size: 1.3rem !important;  /* 文字サイズを大きく */
+    }
+    
+    /* テーブルを調整 */
+    table.week {
+        font-size: 1rem !important;
+    }
+    
+    table.week th,
+    table.week td {
+        padding: 0.3rem !important;
+    }
+    
+    /* お客様の声を調整 */
+    .list-yoko-scroll .list {
+        min-width: 200px !important;
+        padding: 1rem !important;
+    }
+    
+    /* FAQ調整 */
+    .faq dt {
+        font-size: 1.1rem !important;
+        padding: 0.8rem !important;
+    }
+    
+    .faq dd {
+        padding: 0.8rem !important;
+        font-size: 1.05rem !important;
+    }
+}
+
+/* タブレット用調整 */
+@media screen and (min-width: 480px) and (max-width: 899px) {
+    
+    /* 余白をタブレット用に調整 */
+    :root {
+        --content-space: 2.5rem;
+    }
+    
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.2rem; }
+    
+}
+
+/* デスクトップ用調整 */
+@media screen and (min-width: 900px) {
+    
+    /* 余白をデスクトップ用に調整 */
+    :root {
+        --content-space: 4rem;
+    }
+    
+}
+
+/* 横向きモバイル用調整 */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    
+    /* メインビジュアルの高さを調整 */
+    #mainimg {
+        height: 100vh !important;
+    }
+    
+    /* ヘッダーの調整 */
+    header {
+        padding: 0.5rem var(--content-space) !important;
+    }
+    
+}
+
+/* 超小型デバイス用 */
+@media screen and (max-width: 320px) {
+    
+    /* さらに小さなフォントサイズ */
+    html, body {
+        font-size: 15px !important;
+    }
+    
+    /* ロゴをさらに小さく */
+    #logo img {
+        width: 100px !important;
+    }
+    
+    /* ボタンを調整 */
+    #header-box .btn a {
+        padding: 0.2rem 0.6rem !important;
+        font-size: 0.75rem !important;		/*320px以下用に2px相当下げ*/
+    }
+    
+    /* フッターロゴも小さく */
+    #footer div.footer1 img {
+        width: 80px !important;
+    }
+    
+}

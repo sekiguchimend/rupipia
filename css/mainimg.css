@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+
+#mainimg {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	z-index: -1;
+	background: linear-gradient(135deg, #ffe4e1 0%, #fff 50%, #ffb6c1 100%);
+}
+
+#mainimg video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: 60% center;  /* 動画を右寄りに配置 */
+	opacity: 0.9;  /* 動画の透明度を上げて自然に */
+	transition: opacity 0.5s ease;	/*0.5sがフェードにかける時間*/
+	will-change: opacity;
+	z-index: 0;
+	mix-blend-mode: normal; /* ブレンドモードを通常に */
+}
+
+/* レスポンシブ対応：画面サイズに応じて動画の位置を調整 */
+@media screen and (max-width: 767px) {
+	#mainimg video {
+		object-position: 70% center;  /* モバイルでは70%右に */
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+	#mainimg video {
+		object-position: 65% center;  /* タブレットでは65%右に */
+	}
+}
+
+@media screen and (min-width: 1025px) {
+	#mainimg video {
+		object-position: 60% center;  /* デスクトップでは60%右に */
+	}
+}
+
+#mainimg video.active {
+	opacity: 0.8;
+	z-index: 1;
+}
+
+/* 薄いピンクのオーバーレイを追加 */
+#mainimg::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(45deg, rgba(255, 228, 225, 0.1) 0%, rgba(255, 182, 193, 0.1) 100%);
+	z-index: 2;
+	pointer-events: none;
+}
