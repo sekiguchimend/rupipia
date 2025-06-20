@@ -181,6 +181,225 @@
         margin-bottom: 2rem !important;  /* 下のマージンを追加 */
     }
     
+    /* るぴぴあの特徴セクションのタイトル */
+    #kodawari h2 {
+        font-size: 2rem !important;
+        font-weight: 600 !important;
+        margin-bottom: 2.5rem !important;
+        color: #2c3e50 !important;
+        text-align: center;
+        position: relative;
+    }
+    
+    #kodawari h2 .small {
+        font-size: 0.65em !important;
+        color: var(--primary-color) !important;
+        font-weight: 400 !important;
+        letter-spacing: 1.5px !important;
+        margin-top: 0.5rem !important;
+        text-transform: uppercase;
+        opacity: 0.8;
+        display: block;
+        position: relative;
+    }
+    
+    /* OUR FEATURESの左右に線を追加 */
+    #kodawari h2 .small::before,
+    #kodawari h2 .small::after {
+        content: '';
+        position: absolute;
+        top: 70%;
+        width: 80px;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(227, 21, 128, 0.4) 0%, rgba(227, 21, 128, 0.2) 100%);
+        transform: translateY(-50%);
+    }
+    
+    #kodawari h2 .small::before {
+        left: -100px;
+        background: linear-gradient(90deg, rgba(227, 21, 128, 0.2) 0%, rgba(227, 21, 128, 0.4) 100%);
+    }
+    
+    #kodawari h2 .small::after {
+        right: -100px;
+        background: linear-gradient(90deg, rgba(227, 21, 128, 0.4) 0%, rgba(227, 21, 128, 0.2) 100%);
+    }
+    
+    /* サービス紹介セクションのタイトル */
+    #service h2 {
+        font-size: 2rem !important;
+        font-weight: 600 !important;
+        margin-bottom: 2.5rem !important;
+        color: #2c3e50 !important;
+        text-align: center;
+        position: relative;
+    }
+    
+    #service h2 .small {
+        font-size: 0.65em !important;
+        color: var(--primary-color) !important;
+        font-weight: 400 !important;
+        letter-spacing: 1.5px !important;
+        margin-top: 0.5rem !important;
+        text-transform: uppercase;
+        opacity: 0.8;
+        display: block;
+        position: relative;
+    }
+    
+    /* SERVICEの左右に線を追加 */
+    #service h2 .small::before,
+    #service h2 .small::after {
+        content: '';
+        position: absolute;
+        top: 70%;
+        width: 80px;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(227, 21, 128, 0.4) 0%, rgba(227, 21, 128, 0.2) 100%);
+        transform: translateY(-50%);
+    }
+    
+    #service h2 .small::before {
+        left: -100px;
+        background: linear-gradient(90deg, rgba(227, 21, 128, 0.2) 0%, rgba(227, 21, 128, 0.4) 100%);
+    }
+    
+    #service h2 .small::after {
+        right: -100px;
+        background: linear-gradient(90deg, rgba(227, 21, 128, 0.4) 0%, rgba(227, 21, 128, 0.2) 100%);
+    }
+    
+    /* ご利用の流れセクションのタイトル */
+    #flow h2 {
+        font-size: 2rem !important;
+        font-weight: 600 !important;
+        margin-bottom: 2.5rem !important;
+        color: #2c3e50 !important;
+        text-align: center;
+        position: relative;
+    }
+    
+    #flow h2 .small {
+        font-size: 0.65em !important;
+        color: var(--primary-color) !important;
+        font-weight: 400 !important;
+        letter-spacing: 1.5px !important;
+        margin-top: 0.5rem !important;
+        text-transform: uppercase;
+        opacity: 0.8;
+        display: block;
+        position: relative;
+    }
+    
+    /* HOW TO USEの左右に線を追加 */
+    #flow h2 .small::before,
+    #flow h2 .small::after {
+        content: '';
+        position: absolute;
+        top: 70%;
+        width: 80px;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(227, 21, 128, 0.4) 0%, rgba(227, 21, 128, 0.2) 100%);
+        transform: translateY(-50%);
+    }
+    
+    #flow h2 .small::before {
+        left: -100px;
+        background: linear-gradient(90deg, rgba(227, 21, 128, 0.2) 0%, rgba(227, 21, 128, 0.4) 100%);
+    }
+    
+    #flow h2 .small::after {
+        right: -100px;
+        background: linear-gradient(90deg, rgba(227, 21, 128, 0.4) 0%, rgba(227, 21, 128, 0.2) 100%);
+    }
+    
+    /* お客様の声セクションのタイトル */
+    #voice h2 {
+        font-size: 2rem !important;
+        font-weight: 600 !important;
+        margin-bottom: 2.5rem !important;
+        color: #2c3e50 !important;
+        text-align: center;
+        position: relative;
+    }
+    
+    #voice h2 .small {
+        font-size: 0.65em !important;
+        color: var(--primary-color) !important;
+        font-weight: 400 !important;
+        letter-spacing: 1.5px !important;
+        margin-top: 0.5rem !important;
+        text-transform: uppercase;
+        opacity: 0.8;
+        display: block;
+        position: relative;
+    }
+    
+    /* CUSTOMER TESTIMONIALSの左右に線を追加 */
+    #voice h2 .small::before,
+    #voice h2 .small::after {
+        content: '';
+        position: absolute;
+        top: 70%;
+        width: 80px;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(227, 21, 128, 0.4) 0%, rgba(227, 21, 128, 0.2) 100%);
+        transform: translateY(-50%);
+    }
+    
+    #voice h2 .small::before {
+        left: -100px;
+        background: linear-gradient(90deg, rgba(227, 21, 128, 0.2) 0%, rgba(227, 21, 128, 0.4) 100%);
+    }
+    
+    #voice h2 .small::after {
+        right: -100px;
+        background: linear-gradient(90deg, rgba(227, 21, 128, 0.4) 0%, rgba(227, 21, 128, 0.2) 100%);
+    }
+    
+    /* よくある質問セクションのタイトル */
+    #faq h2 {
+        font-size: 2rem !important;
+        font-weight: 600 !important;
+        margin-bottom: 2.5rem !important;
+        color: #2c3e50 !important;
+        text-align: center;
+        position: relative;
+    }
+    
+    #faq h2 .small {
+        font-size: 0.65em !important;
+        color: var(--primary-color) !important;
+        font-weight: 400 !important;
+        letter-spacing: 1.5px !important;
+        margin-top: 0.5rem !important;
+        text-transform: uppercase;
+        opacity: 0.8;
+        display: block;
+        position: relative;
+    }
+    
+    /* FAQの左右に線を追加 */
+    #faq h2 .small::before,
+    #faq h2 .small::after {
+        content: '';
+        position: absolute;
+        top: 70%;
+        width: 80px;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(227, 21, 128, 0.4) 0%, rgba(227, 21, 128, 0.2) 100%);
+        transform: translateY(-50%);
+    }
+    
+    #faq h2 .small::before {
+        left: -100px;
+        background: linear-gradient(90deg, rgba(227, 21, 128, 0.2) 0%, rgba(227, 21, 128, 0.4) 100%);
+    }
+    
+    #faq h2 .small::after {
+        right: -100px;
+        background: linear-gradient(90deg, rgba(227, 21, 128, 0.4) 0%, rgba(227, 21, 128, 0.2) 100%);
+    }
 }
 
 /* 横向きモバイル用調整 */
