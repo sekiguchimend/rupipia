@@ -210,15 +210,8 @@ $(function() {
         }
     });
 
-    // ページロード時にURLのハッシュが存在する場合の処理
-    if(window.location.hash) {
-        // ページの最上部に即時スクロールする
-        $('html, body').scrollTop(0);
-        // 少し遅延させてからスムーススクロールを実行
-        setTimeout(function() {
-            smoothScroll(window.location.hash);
-        }, 10);
-    }
+    // ページロード時にURLのハッシュが存在する場合の処理は削除
+    // 自動スクロールを無効化
 });
 
 

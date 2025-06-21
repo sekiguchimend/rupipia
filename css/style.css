@@ -360,43 +360,65 @@ header a {color: inherit;}
 }
 
 
-/*ヘッダーにある１行のお知らせ
+/*スタイリッシュなお知らせバナー
 ---------------------------------------------------------------------------*/
 .new-top * {margin: 0;padding: 0;}
 
 /*ブロック全体*/
 .new-top {
 	position: absolute;
-	top: 80vh;	/*上から80%の場所に配置*/
-	z-index: 1;
-	width: 80vw;	/*幅は80%*/
-	margin-left: 10vw;	/*左に10%空ける*/
+	top: 85vh;	/*上から85%の場所に配置*/
+	left: 50%;
+	transform: translateX(-50%);	/*中央配置*/
+	z-index: 10;
+	width: 70vw;	/*幅を小さく*/
+	max-width: 550px;	/*最大幅を小さく*/
 	display: flex;
 	align-items: center;
-	padding: 1rem;	/*ボックス内の余白。1文字分。*/
-	background: #fff;	/*背景色。*/
-	border-radius: 5px;	/*角を丸くする*/
+	padding: 0.7rem 1.5rem;	/*パディングを小さく*/
+	background: rgba(255, 255, 255, 0.75);	/*背景を細く（透明度を上げる）*/
+	border: 1px solid rgba(255, 105, 180, 0.15);	/*全体に薄いピンクライン*/
+	box-shadow: 0 1px 8px rgba(255, 105, 180, 0.08);	/*影をより薄く*/
+	transition: all 0.3s ease;	/*ホバー時のトランジション*/
 }
 
-/*マウスオン時に透明度を80%に*/
-.new-top a:hover {
-	opacity: 0.8;
+/*ホバー時のエフェクト*/
+.new-top:hover {
+	transform: translateX(-50%) translateY(-1px);	/*わずかに上に浮く*/
+	border: 1px solid rgba(255, 105, 180, 0.25);	/*境界線を少し濃く*/
+	box-shadow: 0 2px 12px rgba(255, 105, 180, 0.12);	/*影を少し強く*/
 }
 
 /*「お知らせ」の見出し*/
 .new-top h2 {
-	font-size: 1rem;
-	font-weight: normal;
-	background: var(--primary-color);	/*背景色*/
-	color: var(--primary-inverse-color);		/*文字色*/
-	border-radius: 3px;	/*角を少しだけ丸く*/
-	margin-right: 1rem;	/*右に空けるスペース。テキストブロックとの間に空けるスペースです。*/
-	padding: 0 1rem;	/*見出し内の余白。上は0で、左右に１文字分。*/
+	font-size: 0.9rem;
+	font-weight: 700;
+	background: transparent;	/*背景を透明に*/
+	color: var(--primary-color);	/*ピンクの文字色*/
+	margin-right: 1.5rem;
+	padding: 0;	/*パディングを削除*/
+	white-space: nowrap;	/*改行しない*/
+	position: relative;
+}
+
+/*「お知らせ」見出しの下線*/
+.new-top h2::after {
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: var(--primary-color);
 }
 
 /*テキストのブロック*/
 .new-top .text {
 	flex: 1;
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: rgba(44, 62, 80, 0.7);
+	line-height: 1.4;
 	
 	/*以下4行は、末尾を...として１行にまとめる為のスタイル*/
 	min-width: 0;
@@ -407,7 +429,63 @@ header a {color: inherit;}
 
 /*ブロック右側にある「一覧」*/
 .new-top .new-list {
-	align-self: flex-end;
+	margin-left: 1rem;
+}
+
+.new-top .new-list a {
+	display: inline-flex;
+	align-items: center;
+	padding: 0;
+	background: transparent;
+	color: var(--primary-color);
+	text-decoration: none;
+	font-size: 0.85rem;
+	font-weight: 600;
+	transition: all 0.3s ease;
+	position: relative;
+}
+
+/*「一覧」リンクの右矢印*/
+.new-top .new-list a::after {
+	content: '→';
+	margin-left: 0.5rem;
+	transition: transform 0.3s ease;
+}
+
+.new-top .new-list a:hover {
+	color: var(--accent-color);
+}
+
+.new-top .new-list a:hover::after {
+	transform: translateX(3px);
+}
+
+/*スマホ画面でのお知らせバナー調整*/
+@media screen and (max-width:900px) {
+	.new-top {
+		top: 90vh;	/*スマホでは上から90%の場所に配置*/
+		width: 90vw;	/*スマホでは幅を長く*/
+		max-width: none;	/*最大幅制限を解除*/
+		padding: 0.8rem 1.2rem;	/*パディングを調整*/
+	}
+}
+
+/*即座にふわっと表示*/
+.fade-in-immediate {
+	opacity: 0;
+	transform: translateY(20px);
+	animation: fadeInImmediate 1.2s ease-out 0.5s forwards;
+}
+
+@keyframes fadeInImmediate {
+	0% {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 
@@ -506,8 +584,12 @@ main h2.c {
 
 /*画像ブロック共通*/
 .list-half .image-l img, .list-half .image-r img {
-	border-radius: 50px;	/*角を丸くする指定。*/
-	box-shadow: 10px 10px rgba(0,0,0,0.1);	/*ボックスの影。右へ、下へ、0,0,0は黒の事で0.1は色が10%出た状態。*/
+	width: 100%;
+	height: 250px;  /* 高さを固定してアスペクト比を統一 */
+	object-fit: cover;  /* 画像を適切にクロップして表示 */
+	object-position: center;  /* 中央を基準にクロップ */
+	border-radius: 20px;  /* 角をより丸くする */
+	box-shadow: 15px 15px 0 rgba(0, 0, 0, 0.15);  /* 右下にずらした薄い影、ぼかし0でくっきり */
 }
 
 	/*画面幅900px以上の追加指定*/
@@ -550,41 +632,45 @@ main h2.c {
 
 /*ボックス１個あたり*/
 .list-grid7 .list {
-    display: grid;
-	position: relative;
-	border-radius: 5px;		/*角を少しだけ丸く*/
-	background: #fff;	/*背景色を白に変更*/
-	color: rgb(44, 62, 80);			/*文字色をrgb(44, 62, 80)に戻す*/
-	border: 1px solid var(--soft-pink);	/*枠線の幅、線種、色*/
-	padding: 2rem;			/*ボックス内の余白。２文字分。*/
-	margin-bottom: 2rem;	/*ボックスの下に空けるスペース。2文字分。*/
+	padding: 0;  /* パディングを削除してカードの枠を削除 */
+	margin-bottom: 2rem;
+	text-align: center;
+	background: transparent;  /* 背景色を透明に */
+	border: none;  /* 枠線を削除 */
+	box-shadow: none;  /* 影を削除 */
 }
 
 /*ボックス内のh4見出し*/
 .list-grid7 .list h4 {
-	text-align: center;		/*テキストをセンタリング*/
-	font-size: 1.3rem;		/*文字サイズ130%*/
-	margin-bottom: 0.5rem;	/*下に0.5文字分の余白を空ける*/
-	color: var(--primary-color);	/*文字色。css冒頭のprimary-colorを読み込みます。*/
+	font-size: 1.2rem;
+	color: rgb(44, 62, 80);  /* タスク指定の色に変更 */
+	margin-bottom: 0.5rem;
 }
 
 /*h4内のspan（小さな装飾文字）*/
 .list-grid7 .list h4 span {
+	font-size: 0.7em;
 	display: block;
-	font-weight: normal;	/*デフォルトだと太字なので標準に*/
-	font-size: 0.7em;		/*文字サイズを70%*/
+	color: var(--primary-color);
 }
 
 /*ボックス内のp要素*/
 .list-grid7 .list p {
-	font-size: 0.85rem;	/*文字サイズを85%に*/
-	line-height: 1.5;	/*行間を少し狭く*/
+	line-height: 1.8;
+	font-size: 0.9rem;
 }
 
 /*ボックス内のfigure画像*/
 .list-grid7 .list figure {
-	margin: 0 auto;
-	margin-bottom: 1rem;	/*画像の下に空けるスペース*/
+	margin-bottom: 1rem;
+}
+
+.list-grid7 .list figure img {
+	border-radius: 8px 8px 0 0;  /* 上部の角だけを丸める */
+	width: 100%;
+	height: 200px;  /* 高さを固定 */
+	object-fit: cover;  /* 画像を適切にクロップ */
+	object-position: center;  /* 中央を基準にクロップ */
 }
 
 
@@ -920,6 +1006,7 @@ ul.step li:last-child::after {
 /*波を囲む全体のブロック*/
 .wave-section {
 	position: relative;
+	z-index: 1;  /* フッターより背面に配置 */
 	
 	/*以下の３行の数字については、下のwaveのheight(波の高さ)から1を差し引いた形です。隙間が出る場合があるのでそれが出ないようにしています。*/
 	padding-top: 79px;
@@ -929,10 +1016,10 @@ ul.step li:last-child::after {
 
 /*波の色（２つとも揃えておけばOK）*/
 .wave-section .text {
-	background: var(--primary-color);	/*背景色。css冒頭のprimary-colorを読み込みます。*/
+	background: white;	/*背景色。css冒頭のprimary-colorを読み込みます。*/
 }
 .wave-wrap use {
-	fill: var(--primary-color);			/*塗りつぶしの色。css冒頭のprimary-colorを読み込みます。*/
+	fill: white;			/*塗りつぶしの色。css冒頭のprimary-colorを読み込みます。*/
 }
 
 /*上下の波（共通）*/
@@ -941,6 +1028,7 @@ ul.step li:last-child::after {
 	left: 0;
 	width: 100%;
 	height: 80px;	/*波の高さ。ここを変更する場合は上の.wave-sectionの３箇所の数字も合わせて変更して下さい。*/
+	z-index: 1;  /* フッターより背面に配置 */
 }
 .wave svg {
 	display: block;
@@ -951,7 +1039,7 @@ ul.step li:last-child::after {
 .wave .wave-wrap {
 	transform-box: fill-box;
 	transform-origin: 0 0;
-	animation: move-wave 10s linear infinite;	/*ここの10sを変更すれば波のアニメーション速度が変わります*/
+	animation: move-wave 4s linear infinite;	/*ここの4sを変更すれば波のアニメーション速度が変わります*/
 }
 
 /*上の波*/
@@ -973,10 +1061,13 @@ ul.step li:last-child::after {
 
 /*ブロック全体*/
 #footer {
-	background: #fff;		/*背景色を白に変更*/
+	background: rgba(255, 255, 255, 0.95);  /* 半透明背景 */
 	color: rgb(44, 62, 80);	/*文字色をrgb(44, 62, 80)に戻す*/
 	padding: var(--content-space);	/*フッター内の余白*/
-	border-top: 1px solid var(--soft-pink);	/*上部にピンクの線を追加*/
+	position: relative;
+	z-index: 10;  /* 波より前面 */
+	margin-top: -1px;  /* 波との接続部分を1pxだけ重ねる */
+	backdrop-filter: blur(5px);  /* 背景ぼかし */
 }
 
 /*ロゴやSNSアイコンが入ったブロック*/
@@ -1314,6 +1405,280 @@ pre {white-space: pre-wrap;word-wrap: break-word;overflow-wrap: break-word;}
 	.pc {display: block;}
 
 	}/*追加指定ここまで*/
+
+
+/*ペアーズのここがすごい！セクション
+---------------------------------------------------------------------------*/
+#pairs-features,
+#pairs-features-2,
+#pairs-features-3,
+#pairs-features-4 {
+	padding: 4rem var(--content-space);
+	background: #fff;
+	text-align: left;
+}
+
+/*ヘッダー部分*/
+.pairs-header {
+	margin-bottom: 3rem;
+	text-align: left;
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.pairs-title {
+	font-size: 1.4rem;
+	font-weight: bold;
+	color: #ff69b4;
+	margin: 0 0 1rem 0;
+	font-family: 'Noto Sans JP', sans-serif;
+	text-align: left;
+}
+
+/*ドット装飾*/
+.pairs-dots {
+	display: flex;
+	justify-content: flex-start;
+	gap: 4px;
+	margin-top: 1rem;
+}
+
+.pairs-dots span {
+	width: 6px;
+	height: 6px;
+	background: #ff69b4;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+/*ポイント表示*/
+.pairs-point {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 0.5rem;
+	margin-bottom: 2rem;
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.point-badge {
+	background: #ff69b4;
+	color: white;
+	padding: 0.3rem 1rem;
+	border-radius: 20px;
+	font-size: 1rem;
+	font-weight: bold;
+}
+
+.point-number {
+	background: white;
+	color: #ff69b4;
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+/*サブタイトル*/
+.pairs-subtitle {
+	font-size: 2rem;
+	font-weight: bold;
+	color: #333;
+	margin: 0 0 3rem 0;
+	line-height: 1.4;
+	text-align: left;
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*カード群*/
+.pairs-cards {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+/*カード個別*/
+.pairs-card {
+	background: linear-gradient(135deg, #ff69b4 0%, #ff91a4 100%);
+	border-radius: 12px;
+	padding: 1rem;
+	color: white;
+	position: relative;
+	height: 180px;
+	display: flex;
+	flex-direction: column;
+}
+
+.card-content {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	text-align: center;
+}
+
+.card-content h4 {
+	font-size: 1.1rem;
+	font-weight: bold;
+	margin: 0 0 0.5rem 0;
+	line-height: 1.2;
+	text-align: left;
+	flex-shrink: 0;
+	color: #ffffff;
+}
+
+.card-illustration {
+	flex: 1;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	margin-top: auto;
+	overflow: hidden;
+	padding: 0;
+	margin-bottom: 0;
+}
+
+.card-illustration img {
+	max-width: 120%;
+	max-height: 120%;
+	object-fit: contain;
+	margin-bottom: -10px;
+}
+
+/*タブレット以上*/
+@media screen and (min-width: 768px) {
+	.pairs-cards {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5rem;
+	}
+	
+	.pairs-card {
+		height: 200px;
+	}
+	
+	.card-content h4 {
+		font-size: 1.2rem;
+	}
+}
+
+/*デスクトップ*/
+@media screen and (min-width: 1024px) {
+	.pairs-cards {
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1rem;
+	}
+	
+	.pairs-card {
+		height: 200px;
+	}
+	
+	.card-content h4 {
+		font-size: 1.1rem;
+	}
+	
+	.card-illustration img {
+		max-width: 110%;
+		max-height: 110%;
+		margin-bottom: -15px;
+	}
+}
+
+/*機能紹介セクション（LP風）
+---------------------------------------------------------------------------*/
+.qa-section {
+	max-width: 1200px;
+	margin: 4rem auto 0;
+	padding: 0 var(--content-space);
+	text-align: center;
+}
+
+.qa-header {
+	margin-bottom: 3rem;
+}
+
+.qa-title {
+	font-size: 2.4rem;
+	font-weight: 900;
+	color: #ff69b4;
+	margin: 0 0 1rem 0;
+	font-family: 'Noto Sans JP', sans-serif;
+	letter-spacing: 0.05em;
+}
+
+.qa-dots {
+	font-size: 1.2rem;
+	color: #ff69b4;
+	letter-spacing: 0.1em;
+	margin-bottom: 0;
+	font-family: Arial, sans-serif;
+}
+
+.qa-items {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2.5rem;
+	text-align: center;
+	margin-top: 2rem;
+}
+
+
+
+.qa-item {
+	background: transparent;
+	padding: 0;
+}
+
+.qa-item h5 {
+	font-size: 1.4rem;
+	font-weight: bold;
+	color: #333;
+	margin: 0 0 0.8rem 0;
+	font-family: 'Noto Sans JP', sans-serif;
+	letter-spacing: 0.02em;
+}
+
+.qa-item p {
+	font-size: 1.1rem;
+	line-height: 1.7;
+	color: #555;
+	margin: 0;
+	font-family: 'Noto Sans JP', sans-serif;
+}
+
+/*タブレット以上*/
+@media screen and (min-width: 768px) {
+	.qa-title {
+		font-size: 2.8rem;
+	}
+	
+	.qa-items {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 4rem;
+		text-align: left;
+	}
+	
+	.qa-item {
+		padding: 0;
+	}
+	
+	.qa-item h5 {
+		font-size: 1.8rem;
+	}
+	
+	.qa-item p {
+		font-size: 1.3rem;
+	}
+}
 
 
 
