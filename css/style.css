@@ -553,13 +553,20 @@ main h2.c {
 /*背景画像*/
 #kodawari {
 	background: #fff;	/*白背景に変更*/
+	padding-top: 4rem;	/*上側のパディングを追加*/
+	padding-bottom: 4rem;	/*下側のパディングを追加*/
+	max-width: 1200px;	/*セクションの最大幅を1200pxに設定*/
+	margin: 0 auto;	/*セクションを中央配置*/
+	padding-left: 2rem;	/*左側のパディング*/
+	padding-right: 2rem;	/*右側のパディング*/
 }
 
 /*２カラムを囲むブロック*/
 .list-half .list {
 	display: flex;			/*flexボックスを使う指定*/
 	flex-direction: column;	/*子要素を縦並びにする*/
-	margin-bottom: 2rem;	/*ボックスの下に2文字分のスペースを空ける*/
+	margin-bottom: 3rem;	/*ボックスの下に3文字分のスペースを空ける*/
+	margin-top: 1.5rem;		/*ボックスの上に1.5文字分のスペースを空ける*/
 }
 
 /*ブロック内のh4見出し*/
@@ -585,12 +592,22 @@ main h2.c {
 /*画像ブロック共通*/
 .list-half .image-l img, .list-half .image-r img {
 	width: 100%;
-	height: 250px;  /* 高さを固定してアスペクト比を統一 */
+	height: 220px;  /* スマホ画面では220pxに縮小 */
 	object-fit: cover;  /* 画像を適切にクロップして表示 */
 	object-position: center;  /* 中央を基準にクロップ */
 	border-radius: 20px;  /* 角をより丸くする */
 	box-shadow: 15px 15px 0 rgba(0, 0, 0, 0.15);  /* 右下にずらした薄い影、ぼかし0でくっきり */
 }
+
+	/*画面幅768px以上の追加指定（タブレット）*/
+	@media screen and (min-width:768px) {
+
+	/*画像ブロック共通 - タブレット以上では画像を大きく*/
+	.list-half .image-l img, .list-half .image-r img {
+		height: 280px;  /* タブレット以上では280px */
+	}
+
+	}/*タブレット指定ここまで*/
 
 	/*画面幅900px以上の追加指定*/
 	@media screen and (min-width:900px) {
@@ -605,6 +622,11 @@ main h2.c {
 	/*画像ブロック共通*/
 	.list-half .image-l, .list-half .image-r {
 		width: 50%;			/*画像の幅*/
+	}
+
+	/*画像ブロック共通 - デスクトップでは更に大きく*/
+	.list-half .image-l img, .list-half .image-r img {
+		height: 320px;  /* デスクトップでは320px */
 	}
 
 	/*画像を右に配置する場合*/
@@ -1502,7 +1524,7 @@ pre {white-space: pre-wrap;word-wrap: break-word;overflow-wrap: break-word;}
 /*カード群*/
 .pairs-cards {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(2, 1fr);  /* スマホでも1行に2個表示 */
 	gap: 1rem;
 	max-width: 1200px;
 	margin: 0 auto;
@@ -1558,7 +1580,7 @@ pre {white-space: pre-wrap;word-wrap: break-word;overflow-wrap: break-word;}
 /*タブレット以上*/
 @media screen and (min-width: 768px) {
 	.pairs-cards {
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(2, 1fr);  /* タブレットでは2列表示 */
 		gap: 1.5rem;
 	}
 	

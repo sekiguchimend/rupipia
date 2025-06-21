@@ -397,19 +397,53 @@
     /* るぴぴあの特徴セクションとサービス紹介セクション間のマージンを狭める */
     #kodawari {
         margin-bottom: 1rem !important;  /* セクション下部のマージンを狭める */
+        max-width: 100vw !important;  /* スマホ画面での最大幅をビューポート幅に制限 */
+        width: 100% !important;  /* 幅を100%に固定 */
+        margin-left: 0 !important;  /* 左マージンを0に */
+        margin-right: 0 !important;  /* 右マージンを0に */
+        padding-left: 1.5rem !important;  /* スマホ画面での左側パディング */
+        padding-right: 1.5rem !important;  /* スマホ画面での右側パディング */
+        padding-top: 2.5rem !important;  /* スマホ画面での上側パディング */
+        padding-bottom: 2.5rem !important;  /* スマホ画面での下側パディング */
+        box-sizing: border-box !important;  /* パディングを含めた幅計算 */
     }
     
     #service {
         margin-top: 1rem !important;  /* セクション上部のマージンを狭める */
+        max-width: 100vw !important;  /* 最大幅をビューポート幅に制限 */
+        width: 100% !important;  /* 幅を100%に固定 */
+        box-sizing: border-box !important;  /* パディングを含めた幅計算 */
     }
     
-    /* スマホ画面でのoverflow制限を根本的に解決 */
+    /* すべてのセクションで横スクロールを防止 */
+    section {
+        max-width: 100vw !important;  /* 最大幅をビューポート幅に制限 */
+        width: 100% !important;  /* 幅を100%に固定 */
+        box-sizing: border-box !important;  /* パディングを含めた幅計算 */
+        overflow-x: hidden !important;  /* 横スクロールを禁止 */
+    }
+    
+    /* すべての要素で横幅制限 */
+    * {
+        box-sizing: border-box !important;  /* パディングを含めた幅計算 */
+    }
+    
+    /* 画像やメディア要素の制限 */
+    img, video, iframe {
+        max-width: 100% !important;  /* 画像は親要素の幅を超えない */
+    }
+    
+    /* スマホ画面での横スクロールを完全に防止 */
     html, body {
-        overflow-x: visible !important;  /* 横スクロール制限を解除 */
+        overflow-x: hidden !important;  /* 横スクロールを完全に禁止 */
+        width: 100% !important;  /* 幅を100%に固定 */
+        max-width: 100vw !important;  /* 最大幅をビューポート幅に制限 */
     }
     
     #container {
-        overflow: visible !important;  /* コンテナのオーバーフローも解除 */
+        overflow-x: hidden !important;  /* コンテナの横スクロールも禁止 */
+        width: 100% !important;  /* 幅を100%に固定 */
+        max-width: 100vw !important;  /* 最大幅をビューポート幅に制限 */
     }
     
     /* スマホ画面でも波とフッターの接続を1pxだけ重ねる */
@@ -458,6 +492,17 @@
     h1 { font-size: 1.8rem; }
     h2 { font-size: 1.5rem; }
     h3 { font-size: 1.2rem; }
+    
+    /* るぴぴあの特徴セクションのタブレット用パディング */
+    #kodawari {
+        max-width: 95% !important;  /* タブレット画面での最大幅を制限 */
+        margin-left: auto !important;  /* 中央配置 */
+        margin-right: auto !important;  /* 中央配置 */
+        padding-left: 2rem !important;  /* タブレット画面での左側パディング */
+        padding-right: 2rem !important;  /* タブレット画面での右側パディング */
+        padding-top: 3.5rem !important;  /* タブレット画面での上側パディング */
+        padding-bottom: 3.5rem !important;  /* タブレット画面での下側パディング */
+    }
     
 }
 
