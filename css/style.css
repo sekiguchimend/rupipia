@@ -960,7 +960,7 @@ ul.step li:last-child::after {
 /*ボタンブロック*/
 .btn-box {
 	position: relative;
-	background: linear-gradient(rgba(255, 105, 180, 0.1), rgba(255, 182, 193, 0.2)), url("../images/image.jpg");
+	background: linear-gradient(rgba(255, 105, 180, 0.1), rgba(255, 182, 193, 0.2)), url("../images/footer.jpg");
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
