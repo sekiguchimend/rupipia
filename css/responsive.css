@@ -247,18 +247,36 @@
         margin-top: 0.2rem !important;  /* 余白調整 */
     }
     
-    /* お知らせバナーのスマホ対応強化 */
+    /* お知らせバナーのスマホ対応強化 - トップ画面内の下部に配置 */
     .new-top {
         position: absolute !important;
-        top: 88vh !important;  /* スマホでは上から88%の場所に配置 */
+        top: 88vh !important;  /* トップ画面内の下部に配置 */
         left: 50% !important;  /* 左から50%の位置 */
         transform: translateX(-50%) !important;  /* 中央配置 */
         width: 95vw !important;  /* スマホでは幅を95vw */
-        max-width: 350px !important;  /* 最大幅を350pxに制限 */
-        padding: 0.5rem 1rem !important;  /* パディングを調整 */
-        background: rgba(255, 255, 255, 0.9) !important;  /* 背景を少し濃く */
-        border-radius: 0.5rem !important;  /* 角を丸く */
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;  /* 影を追加 */
+        max-width: 450px !important;  /* 最大幅を450pxに調整 */
+        padding: 0.5rem 1rem !important;  /* パディングを小さく */
+        background: rgba(255, 255, 255, 0.95) !important;  /* 背景を少し濃く */
+        border-radius: 0.6rem !important;  /* 角を小さく */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;  /* 影を軽く */
+        backdrop-filter: blur(10px) !important;  /* 背景ブラー効果 */
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;  /* 白い境界線 */
+        z-index: 20 !important;  /* 確実に前面に表示 */
+        height: auto !important;
+    }
+    
+    .new-top h2 {
+        font-size: 0.7rem !important;
+        margin-right: 0.8rem !important;
+    }
+    
+    .new-top .text {
+        font-size: 0.75rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .new-top .new-list a {
+        font-size: 0.7rem !important;
     }
     
     .new-top h2 {
@@ -285,21 +303,115 @@
         font-size: 0.65rem !important;
     }
     
-    /* メイン画像のスマホ対応 */
+    /* ヘッダーのスマホ対応 - 完全透明背景 */
+    header {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 30 !important;  /* お知らせバナーより前面 */
+        background: transparent !important;  /* 完全透明背景 */
+    }
+    
+    /* ロゴの調整 */
+    #logo img {
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) !important;  /* ロゴに影を追加 */
+    }
+    
+    /* ヘッダーボタンのスマホ対応強化 - 横並び */
+    #header-box .btn {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 0.5rem !important;
+        flex-wrap: nowrap !important;
+    }
+    
+    #header-box .btn li {
+        flex: 1 !important;
+        margin-bottom: 0 !important;
+    }
+    
+    #header-box .btn a {
+        background: rgba(255, 105, 180, 0.9) !important;  /* 少し透明なピンク背景 */
+        color: white !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;  /* 白い境界線 */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;  /* 影を追加 */
+        font-size: 0.6rem !important;
+        padding: 0.3rem 0.4rem !important;
+        text-align: center !important;
+        white-space: nowrap !important;
+    }
+    
+    /* ハンバーガーメニューボタンの調整 */
+    #menubar_hdr {
+        background: rgba(255, 105, 180, 0.9) !important;  /* 半透明ピンク */
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;  /* 白い境界線 */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;  /* 影を追加 */
+    }
+    
+    /* メイン画像のスマホ対応 - 画面いっぱいに表示 */
     #mainimg {
-        width: 100% !important;
-        max-width: 100vw !important;
+        position: relative !important;
+        width: 100vw !important;
+        height: 100vh !important;
         overflow: hidden !important;
         margin: 0 !important;
         padding: 0 !important;
+        z-index: -1 !important;
     }
     
     #mainimg img {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
         width: 100% !important;
-        height: auto !important;
-        max-height: 60vh !important;
+        height: 100% !important;
         object-fit: cover !important;
-        object-position: center !important;
+        object-position: center center !important;
+        z-index: 0 !important;
+    }
+    
+    /* ヘッダー下CTAバナーのスマホ対応 - トップ画面下の細長いバナー */
+    .header-cta-banner {
+        position: absolute !important;
+        top: 100vh !important;  /* トップ画面の下に配置 */
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 95vw !important;
+        max-width: 450px !important;
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px) !important;
+        border-radius: 0.6rem !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        z-index: 15 !important;
+        margin-bottom: 0 !important;
+        margin-top: 1rem !important;
+        padding: 0.8rem 1rem !important;
+        text-align: center !important;
+        height: auto !important;
+    }
+    
+    .header-cta-content {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 1rem !important;
+    }
+    
+    .header-cta-content h3 {
+        font-size: 0.9rem !important;
+        line-height: 1.2 !important;
+        margin: 0 !important;
+        flex: 1 !important;
+        text-align: left !important;
+    }
+    
+    .header-cta-button {
+        font-size: 0.8rem !important;
+        padding: 0.4rem 0.8rem !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
     }
     
     /* コンテナの調整 */
@@ -405,12 +517,7 @@
         background-attachment: scroll !important;  /* fixedをscrollに変更 */
     }
     
-    /* ヘッダーボタンをモバイル用に大きく調整 */
-    #header-box .btn a {
-        padding: 0.5rem 1.2rem !important;  /* パディングを大きく */
-        font-size: 0.85rem !important;  /* 文字サイズを大きく */
-        background: rgba(227, 21, 128, 0.5) !important; /* 背景色を半透明に */
-    }
+
     
     /* 下部のボタン要素の古い設定は削除（小さくするため） */
     
@@ -548,6 +655,248 @@
         display: block !important;  /* SVGを確実に表示 */
         width: 100% !important;
         height: 100% !important;
+    }
+    
+    /* ==== 新しく追加されたセクションのスマホ対応 ==== */
+    
+    /* コンテンツ開始位置を調整 */
+    #contents {
+        margin-top: calc(100vh + 2rem) !important;  /* メイン画像＋ヘッダーCTAバナー分の余白 */
+    }
+    
+    /* お悩みセクションのスマホ対応 */
+    .troubles-section {
+        padding: 2rem 1rem !important;
+    }
+    
+    .troubles-title {
+        font-size: 1.6rem !important;
+        margin-bottom: 2rem !important;
+    }
+    
+    .trouble-cards {
+        gap: 1.5rem !important;
+        margin-bottom: 2rem !important;
+    }
+    
+    .trouble-card {
+        padding: 2rem 1.5rem !important;
+    }
+    
+    .trouble-card-icon {
+        width: 250px !important;
+        height: 150px !important;
+        margin: 0 auto 1.5rem !important;
+    }
+    
+    .trouble-card-icon img {
+        width: 120px !important;
+        height: 120px !important;
+    }
+    
+    .trouble-card-title {
+        font-size: 1.2rem !important;
+        margin-bottom: 1rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .trouble-card-text {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+    }
+    
+    /* 統計セクションのスマホ対応 */
+    .statistics-section {
+        padding: 2rem 1rem !important;
+    }
+    
+    .statistics-content {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+    
+    .statistics-number {
+        font-size: 1.6rem !important;
+        text-align: center !important;
+        line-height: 1.3 !important;
+    }
+    
+    .statistics-description {
+        font-size: 0.9rem !important;
+        text-align: center !important;
+        line-height: 1.6 !important;
+    }
+    
+    .statistics-image {
+        max-width: 200px !important;
+        margin-top: 1rem !important;
+    }
+    
+    /* 比較表セクションのスマホ対応 */
+    .comparison-section {
+        padding: 2rem 1rem !important;
+    }
+    
+    .comparison-section h2 {
+        font-size: 1.6rem !important;
+        margin-bottom: 2rem !important;
+    }
+    
+    .comparison-table {
+        overflow-x: auto !important;
+        margin: 0 -1rem !important;
+        padding: 0 1rem !important;
+    }
+    
+    .comparison-table-inner {
+        min-width: 300px !important;
+        font-size: 0.8rem !important;
+    }
+    
+    .comparison-table-inner th,
+    .comparison-table-inner td {
+        padding: 0.5rem 0.3rem !important;
+        font-size: 0.75rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .comparison-category {
+        font-size: 0.8rem !important;
+        min-width: 80px !important;
+    }
+    
+    .comparison-category i {
+        font-size: 0.7rem !important;
+        margin-right: 0.3rem !important;
+    }
+    
+    /* 使い方セクションのスマホ対応 - 縦並びで表示 */
+    .how-to-use-section {
+        padding: 2rem 1rem !important;
+    }
+    
+    .how-to-use-section h2 {
+        font-size: 1.6rem !important;
+        margin-bottom: 2rem !important;
+    }
+    
+    .how-to-use-slider {
+        overflow-x: visible !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .slider-container {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+        width: 100% !important;
+    }
+    
+    .slide-item {
+        min-width: 100% !important;
+        width: 100% !important;
+        padding: 1.2rem 1rem !important;
+        margin: 0 !important;
+        background: #fff !important;
+        border-radius: 8px !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .step-header {
+        font-size: 0.9rem !important;
+        padding: 0.2rem 0.6rem !important;
+        margin-bottom: 0.6rem !important;
+        background: var(--primary-color) !important;
+        color: white !important;
+        border-radius: 20px !important;
+        display: inline-block !important;
+    }
+    
+    .slide-item h4 {
+        font-size: 0.9rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 0.8rem !important;
+        color: #333 !important;
+    }
+    
+    .step-image-placeholder {
+        height: 80px !important;
+        font-size: 0.7rem !important;
+        background: #f5f5f5 !important;
+        border-radius: 6px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    /* るぴぴあのここが凄い！セクションのスマホ対応 */
+    #pairs-features {
+        padding: 2rem 1rem !important;
+    }
+    
+    .pairs-header {
+        margin-bottom: 2rem !important;
+    }
+    
+    .pairs-title {
+        font-size: 1.2rem !important;
+        margin: 0 0 1rem 0 !important; /* 左マージンを0に戻す */
+        text-align: center !important;
+    }
+    
+    .pairs-dots {
+        justify-content: center !important;
+        margin-left: 0 !important; /* 左マージンを0に戻す */
+        margin-top: 0.5rem !important;
+    }
+    
+    .pairs-subtitle {
+        font-size: 1.4rem !important;
+        margin: 0 0 2rem 0 !important; /* 左マージンを0に戻す */
+        text-align: center !important;
+        line-height: 1.3 !important;
+    }
+    
+    .pairs-cards {
+        max-width: 100% !important;
+        gap: 0.6rem !important;
+    }
+    
+    .pairs-card {
+        min-height: 140px !important;
+        padding: 0.6rem !important;
+    }
+    
+    .card-content h4 {
+        font-size: 0.9rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 0.3rem !important;
+    }
+    
+    .card-illustration img {
+        max-width: 100% !important;
+        max-height: 80px !important;
+    }
+    
+    /* 最終CTAセクションのスマホ対応 */
+    .final-cta-section {
+        padding: 2rem 1rem !important;
+    }
+    
+    .final-cta-content h3 {
+        font-size: 1.4rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .final-cta-content p {
+        font-size: 0.9rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .final-cta-button {
+        font-size: 0.9rem !important;
+        padding: 0.8rem 1.5rem !important;
     }
 }
 
@@ -871,3 +1220,4 @@
     }
     
 }
+
