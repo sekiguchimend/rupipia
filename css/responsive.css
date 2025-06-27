@@ -250,7 +250,7 @@
     /* お知らせバナーのスマホ対応強化 - トップ画面内の下部に配置 */
     .new-top {
         position: absolute !important;
-        top: 88vh !important;  /* トップ画面内の下部に配置 */
+        top: 75vh !important;  /* トップ画面が85vhになったので調整 */
         left: 50% !important;  /* 左から50%の位置 */
         transform: translateX(-50%) !important;  /* 中央配置 */
         width: 95vw !important;  /* スマホでは幅を95vw */
@@ -336,8 +336,8 @@
         color: white !important;
         border: 1px solid rgba(255, 255, 255, 0.3) !important;  /* 白い境界線 */
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;  /* 影を追加 */
-        font-size: 0.6rem !important;
-        padding: 0.3rem 0.4rem !important;
+        font-size: 0.7rem !important;  /* 0.6remから0.7remに拡大 */
+        padding: 0.4rem 0.6rem !important;  /* パディングも少し拡大 */
         text-align: center !important;
         white-space: nowrap !important;
     }
@@ -349,11 +349,11 @@
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;  /* 影を追加 */
     }
     
-    /* メイン画像のスマホ対応 - 画面いっぱいに表示 */
+    /* メイン画像のスマホ対応 - 85vhに設定 */
     #mainimg {
         position: relative !important;
         width: 100vw !important;
-        height: 100vh !important;  /* 画面いっぱいに戻す */
+        height: 85vh !important;  /* 80vhから85vhに拡大 */
         overflow: hidden !important;
         margin: 0 !important;
         padding: 0 !important;
