@@ -353,7 +353,7 @@
     #mainimg {
         position: relative !important;
         width: 100vw !important;
-        height: 100vh !important;
+        height: 100vh !important;  /* 画面いっぱいに戻す */
         overflow: hidden !important;
         margin: 0 !important;
         padding: 0 !important;
@@ -371,47 +371,48 @@
         z-index: 0 !important;
     }
     
-    /* ヘッダー下CTAバナーのスマホ対応 - トップ画面下の細長いバナー */
+    /* ヘッダー下CTAバナーのスマホ対応 - セクション風に変更 */
     .header-cta-banner {
-        position: absolute !important;
-        top: 100vh !important;  /* トップ画面の下に配置 */
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        width: 95vw !important;
-        max-width: 450px !important;
-        background: rgba(255, 255, 255, 0.95) !important;
-        backdrop-filter: blur(10px) !important;
-        border-radius: 0.6rem !important;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
-        border: 1px solid rgba(255, 255, 255, 0.3) !important;
-        z-index: 15 !important;
-        margin-bottom: 0 !important;
-        margin-top: 1rem !important;
-        padding: 0.8rem 1rem !important;
+        position: relative !important;  /* absoluteからrelativeに変更 */
+        top: auto !important;  /* topを自動に */
+        left: auto !important;  /* leftを自動に */
+        transform: none !important;  /* transformを削除 */
+        width: 100% !important;  /* 幅を100%に */
+        max-width: none !important;  /* max-widthを削除 */
+        background: #fff0f5 !important;  /* 背景をもっと薄いピンクに変更 */
+        backdrop-filter: none !important;  /* ブラー効果を削除 */
+        border-radius: 0 !important;  /* 角丸を削除 */
+        box-shadow: none !important;  /* 影を削除 */
+        border: none !important;  /* 境界線を削除 */
+        border-bottom: 1px solid #e5e5e5 !important;  /* 下部に薄い境界線を追加 */
+        z-index: auto !important;  /* z-indexを自動に */
+        margin: 0 !important;  /* マージンをリセット */
+        padding: 1rem 1rem !important;  /* 上下パディングを狭く */
         text-align: center !important;
         height: auto !important;
     }
     
     .header-cta-content {
         display: flex !important;
+        flex-direction: column !important;  /* 縦並びに変更 */
         align-items: center !important;
-        justify-content: space-between !important;
-        gap: 1rem !important;
+        justify-content: center !important;
+        gap: 1rem !important;  /* ギャップを適度に */
     }
     
     .header-cta-content h3 {
-        font-size: 0.9rem !important;
-        line-height: 1.2 !important;
+        font-size: 1rem !important;  /* フォントサイズを小さく */
+        line-height: 1.4 !important;
         margin: 0 !important;
-        flex: 1 !important;
-        text-align: left !important;
+        text-align: center !important;  /* 中央揃え */
+        width: 100% !important;
     }
     
     .header-cta-button {
-        font-size: 0.8rem !important;
-        padding: 0.4rem 0.8rem !important;
+        font-size: 0.8rem !important;  /* ボタン文字をさらに小さく */
+        padding: 0.3rem 1rem !important;  /* パディングをさらに縮小 */
+        background: var(--color-pink) !important;  /* 元のピンク背景に戻す */
         white-space: nowrap !important;
-        flex-shrink: 0 !important;
     }
     
     /* コンテナの調整 */
@@ -580,7 +581,7 @@
         margin-right: 0 !important;  /* 右マージンを0に */
         padding-left: 1.5rem !important;  /* スマホ画面での左側パディング */
         padding-right: 1.5rem !important;  /* スマホ画面での右側パディング */
-        padding-top: 2.5rem !important;  /* スマホ画面での上側パディング */
+        padding-top: 0.5rem !important;  /* スマホ画面での上側パディングを大幅削減 */
         padding-bottom: 2.5rem !important;  /* スマホ画面での下側パディング */
         box-sizing: border-box !important;  /* パディングを含めた幅計算 */
     }
@@ -661,12 +662,13 @@
     
     /* コンテンツ開始位置を調整 */
     #contents {
-        margin-top: calc(100vh + 2rem) !important;  /* メイン画像＋ヘッダーCTAバナー分の余白 */
+        margin-top: 0 !important;  /* スマホでは余白を削除 */
     }
     
     /* お悩みセクションのスマホ対応 */
     .troubles-section {
-        padding: 2rem 1rem !important;
+        padding: 2rem 1rem !important;  /* 通常のセクションパディング */
+        margin-top: 0 !important;  /* マージンをリセット */
     }
     
     .troubles-title {
@@ -730,6 +732,45 @@
     .statistics-image {
         max-width: 200px !important;
         margin-top: 1rem !important;
+    }
+    
+    .statistics-visual {
+        width: 280px !important;
+        height: 280px !important;
+    }
+    
+    .statistics-visual img {
+        width: 160px !important;
+        height: 160px !important;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+    }
+    
+    .visual-overlay-1 {
+        top: 25px !important;
+        left: 15px !important;
+        width: 60px !important;
+        height: 60px !important;
+    }
+    
+    .visual-overlay-2 {
+        bottom: 30px !important;
+        right: 20px !important;
+        width: 45px !important;
+        height: 45px !important;
+    }
+    
+    .visual-overlay-3 {
+        top: 60px !important;
+        right: 35px !important;
+        width: 30px !important;
+        height: 30px !important;
+    }
+    
+    .visual-overlay-4 {
+        bottom: 90px !important;
+        left: 25px !important;
+        width: 20px !important;
+        height: 20px !important;
     }
     
     /* 比較表セクションのスマホ対応 */
@@ -1219,5 +1260,24 @@
         width: 80px !important;
     }
     
+}
+
+/* ヘッダーCTAバナーの文字切り替え - スマホでもPC版表示 */
+@media screen and (min-width: 769px) {
+	.header-cta-text-mobile {
+		display: none;
+	}
+	.header-cta-button-text-mobile {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.header-cta-text-pc {
+		display: none !important;  /* スマホではPC版テキストを非表示 */
+	}
+	.header-cta-button-text-mobile {
+		display: none !important;  /* スマホではモバイル版ボタンテキストを非表示 */
+	}
 }
 
