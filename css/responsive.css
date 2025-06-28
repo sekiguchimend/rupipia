@@ -5,6 +5,51 @@
 /* モバイル用追加調整 */
 @media screen and (max-width: 479px) {
     
+    /* ヘッダーボタンをスマホ画面で非表示 */
+    #header-box {
+        display: none !important;
+    }
+    
+    /* メイン画像をカード形式に変更 */
+    #mainimg {
+        position: relative !important;
+        width: 90% !important;  /* 画面幅の90%に */
+        max-width: 350px !important;  /* 最大幅を制限 */
+        height: 45vh !important;  /* 高さを45vhに縮小 */
+        margin: 15vh auto 0 auto !important;  /* 上のマージンを増やして調整 */
+        border-radius: 20px !important;  /* カードのような角丸 */
+        overflow: hidden !important;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;  /* カードらしい影 */
+        z-index: 5 !important;
+        background: #fff !important;
+    }
+    
+    #mainimg img {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;  /* 110%から100%に戻す */
+        height: 100% !important;  /* 110%から100%に戻す */
+        transform: none !important;  /* translateを削除 */
+        object-fit: cover !important;
+        object-position: left center !important;  /* 左寄りにピックアップ */
+        z-index: 0 !important;
+        border-radius: 20px !important;  /* 画像も角丸に */
+    }
+    
+    /* メイン画像の上にカード風のオーバーレイ */
+    #mainimg::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 40%;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+        z-index: 1;
+        border-radius: 0 0 20px 20px;
+    }
+    
     /* 見出しサイズを調整 */
     h1 { font-size: 1.8rem !important; }
     h2 { font-size: 1.6rem !important; }
@@ -247,36 +292,23 @@
         margin-top: 0.2rem !important;  /* 余白調整 */
     }
     
-    /* お知らせバナーのスマホ対応強化 - トップ画面内の下部に配置 */
+    /* お知らせバナーをCTAバナーの上に重ねて配置 */
     .new-top {
         position: absolute !important;
-        top: 75vh !important;  /* トップ画面が85vhになったので調整 */
-        left: 50% !important;  /* 左から50%の位置 */
-        transform: translateX(-50%) !important;  /* 中央配置 */
-        width: 95vw !important;  /* スマホでは幅を95vw */
-        max-width: 450px !important;  /* 最大幅を450pxに調整 */
-        padding: 0.5rem 1rem !important;  /* パディングを小さく */
-        background: rgba(255, 255, 255, 0.95) !important;  /* 背景を少し濃く */
-        border-radius: 0.6rem !important;  /* 角を小さく */
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;  /* 影を軽く */
-        backdrop-filter: blur(10px) !important;  /* 背景ブラー効果 */
-        border: 1px solid rgba(255, 255, 255, 0.3) !important;  /* 白い境界線 */
-        z-index: 20 !important;  /* 確実に前面に表示 */
+        top: 67vh !important;  /* 70vhから67vhに変更して少し上げる */
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 85% !important;  
+        max-width: 320px !important;
+        margin: 0 !important;  /* marginをリセット */
+        padding: 0.5rem 1rem !important;
+        background: rgba(255, 255, 255, 0.98) !important;  /* 背景を少し濃く */
+        border-radius: 10px !important;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25) !important;  /* 影を強くする */
+        backdrop-filter: blur(15px) !important;  /* ブラー効果を強くする */
+        border: 1px solid rgba(255, 255, 255, 0.5) !important;  /* 境界線を濃く */
+        z-index: 30 !important;  /* さらに前面に（20 → 30） */
         height: auto !important;
-    }
-    
-    .new-top h2 {
-        font-size: 0.7rem !important;
-        margin-right: 0.8rem !important;
-    }
-    
-    .new-top .text {
-        font-size: 0.75rem !important;
-        line-height: 1.3 !important;
-    }
-    
-    .new-top .new-list a {
-        font-size: 0.7rem !important;
     }
     
     .new-top h2 {
@@ -349,82 +381,25 @@
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;  /* 影を追加 */
     }
     
-    /* メイン画像のスマホ対応 - 85vhに設定 */
-    #mainimg {
-        position: relative !important;
-        width: 100vw !important;
-        height: 85vh !important;  /* 80vhから85vhに拡大 */
-        overflow: hidden !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        z-index: -1 !important;
+    /* フローセクション全体の上余白を追加 */
+    #flow {
+        padding-top: 4rem !important;
     }
     
-    #mainimg img {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        object-position: center center !important;
-        z-index: 0 !important;
+    /* ステップ番号の位置調整 */
+    .flow-box {
+        margin-top: 3rem !important;
+        margin-bottom: 3rem !important;
+        position: relative;
     }
     
-    /* ヘッダー下CTAバナーのスマホ対応 - セクション風に変更 */
-    .header-cta-banner {
-        position: relative !important;  /* absoluteからrelativeに変更 */
-        top: auto !important;  /* topを自動に */
-        left: auto !important;  /* leftを自動に */
-        transform: none !important;  /* transformを削除 */
-        width: 100% !important;  /* 幅を100%に */
-        max-width: none !important;  /* max-widthを削除 */
-        background: #fff0f5 !important;  /* 背景をもっと薄いピンクに変更 */
-        backdrop-filter: none !important;  /* ブラー効果を削除 */
-        border-radius: 0 !important;  /* 角丸を削除 */
-        box-shadow: none !important;  /* 影を削除 */
-        border: none !important;  /* 境界線を削除 */
-        border-bottom: 1px solid #e5e5e5 !important;  /* 下部に薄い境界線を追加 */
-        z-index: auto !important;  /* z-indexを自動に */
-        margin: 0 !important;  /* マージンをリセット */
-        padding: 1rem 1rem !important;  /* 上下パディングを狭く */
-        text-align: center !important;
-        height: auto !important;
+    .flow-box .step-num {
+        top: -60px !important;
+        font-size: 2.5rem !important;
+        z-index: 1;
     }
     
-    .header-cta-content {
-        display: flex !important;
-        flex-direction: column !important;  /* 縦並びに変更 */
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 1rem !important;  /* ギャップを適度に */
-    }
-    
-    .header-cta-content h3 {
-        font-size: 1rem !important;  /* フォントサイズを小さく */
-        line-height: 1.4 !important;
-        margin: 0 !important;
-        text-align: center !important;  /* 中央揃え */
-        width: 100% !important;
-    }
-    
-    .header-cta-button {
-        font-size: 0.8rem !important;  /* ボタン文字をさらに小さく */
-        padding: 0.3rem 1rem !important;  /* パディングをさらに縮小 */
-        background: var(--color-pink) !important;  /* 元のピンク背景に戻す */
-        white-space: nowrap !important;
-    }
-    
-    /* コンテナの調整 */
-    #container {
-        width: 100% !important;
-        max-width: 100vw !important;
-        overflow-x: hidden !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    
-    /* ボタンボックス（フー上）の調整 */
+    /* ボタンボックス（フロー上）の調整 */
     .btn-box {
         padding: 1.5rem 0.5rem !important;
         background-attachment: scroll !important;
@@ -452,32 +427,14 @@
         text-overflow: ellipsis !important;
     }
     
-    /* フローセクション全体の上余白を追加 */
-    #flow {
-        padding-top: 4rem !important;  /* セクション上部にマージンを追加 */
-    }
-    
-    /* ステップ番号の位置調整 */
-    .flow-box {
-        margin-top: 3rem !important;  /* 各ステップボックスの上マージン */
-        margin-bottom: 3rem !important;  /* 各ステップボックスの下マージン */
-        position: relative;  /* ステップ番号の基準点として */
-    }
-    
-    .flow-box .step-num {
-        top: -60px !important;  /* もう少し上に表示（-50px → -70px） */
-        font-size: 2.5rem !important;  /* モバイル用にサイズを少し調整 */
-        z-index: 1;  /* 他の要素に埋もれないように */
-    }
-    
     /* お客様の声の文字サイズを小さく */
     .list-yoko-scroll .list h4 {
-        font-size: 0.9rem !important;  /* タイトルを小さく */
+        font-size: 0.9rem !important;
     }
     
     .list-yoko-scroll .list .text {
-        font-size: 0.75rem !important;  /* 本文を小さく（0.85rem → 0.7em） */
-        line-height: 1.6 !important;  /* 行間を少し広めに調 */
+        font-size: 0.75rem !important;
+        line-height: 1.6 !important;
     }
     
     /* セクション間の余白を小さく */
@@ -517,8 +474,6 @@
     .btn-box {
         background-attachment: scroll !important;  /* fixedをscrollに変更 */
     }
-    
-
     
     /* 下部のボタン要素の古い設定は削除（小さくするため） */
     
@@ -614,12 +569,6 @@
     /* スマホ画面での横スクロールを完全に防止 */
     html, body {
         overflow-x: hidden !important;  /* 横スクロールを完全に禁止 */
-        width: 100% !important;  /* 幅を100%に固定 */
-        max-width: 100vw !important;  /* 最大幅をビューポート幅に制限 */
-    }
-    
-    #container {
-        overflow-x: hidden !important;  /* コンテナの横スクロールも禁止 */
         width: 100% !important;  /* 幅を100%に固定 */
         max-width: 100vw !important;  /* 最大幅をビューポート幅に制限 */
     }
@@ -938,6 +887,68 @@
     .final-cta-button {
         font-size: 0.9rem !important;
         padding: 0.8rem 1.5rem !important;
+    }
+    
+    /* CTAバナーの調整 - さらに下に配置 */
+    .header-cta-banner {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: none !important;
+        background: #fff0f5 !important;
+        backdrop-filter: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        border-bottom: 1px solid #e5e5e5 !important;
+        z-index: 5 !important;  /* 通知バナーより確実に下（10 → 5） */
+        margin: 15vh 0 0 0 !important;  /* 上にマージンを追加してバナーを下に */
+        padding: 1rem 1rem !important;
+        text-align: center !important;
+        height: auto !important;
+    }
+    
+    .header-cta-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 1rem !important;
+    }
+    
+    .header-cta-content h3 {
+        font-size: 1rem !important;
+        line-height: 1.4 !important;
+        margin: 0 !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+    
+    .header-cta-button {
+        font-size: 0.8rem !important;
+        padding: 0.3rem 1rem !important;
+        background: var(--color-pink) !important;
+        white-space: nowrap !important;
+    }
+    
+    /* コンテナにも白背景を追加して確実に通知部分まで白にする */
+    #container {
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #ffffff !important;  /* コンテナにも白背景を追加 */
+        min-height: 95vh !important;  /* 通知バナー位置（70vh）+ バナー高さを考慮して95vhに拡張 */
+        /* flexbox設定を削除 */
+    }
+    
+    /* ボディの背景を白にする */
+    body {
+        background: #ffffff !important;
+        min-height: 150vh !important;  /* 130vhから150vhに拡張してバナー位置変更に対応 */
     }
 }
 
@@ -1273,11 +1284,13 @@
 }
 
 @media screen and (max-width: 768px) {
-	.header-cta-text-pc {
-		display: none !important;  /* スマホではPC版テキストを非表示 */
+	.header-cta-text-mobile {
+		display: none !important;  /* スマホではモバイル版テキストを非表示 */
 	}
 	.header-cta-button-text-mobile {
 		display: none !important;  /* スマホではモバイル版ボタンテキストを非表示 */
 	}
 }
+
+
 
