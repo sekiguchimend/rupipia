@@ -463,6 +463,12 @@
         background-attachment: scroll !important;  /* fixedをscrollに変更 */
     }
     
+    /* スマホ画面でマッチングサイトの前で改行 */
+    .header-cta-text-pc .highlight::before {
+        content: '\A' !important;  /* 改行文字を追加 */
+        white-space: pre !important;  /* 改行を有効にする */
+    }
+    
     /* 下部のボタン要素の古い設定は削除（小さくするため） */
     
     /* テーブルを調整 */
