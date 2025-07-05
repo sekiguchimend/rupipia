@@ -2258,6 +2258,8 @@ pre {white-space: pre-wrap;word-wrap: break-word;overflow-wrap: break-word;}
 	font-weight: 600;
 	color: var(--color-gray-700);
 	font-size: 0.85rem;
+	text-align: center;
+	vertical-align: middle;
 }
 
 .comparison-category {
@@ -2322,7 +2324,7 @@ pre {white-space: pre-wrap;word-wrap: break-word;overflow-wrap: break-word;}
 ---------------------------------------------------------------------------*/
 .how-to-use-section {
 	background: #fff;
-	padding: 2.5rem calc(var(--space-inner)*2);
+	padding: 0.5rem calc(var(--space-inner)*2);
 	border-bottom: 1px solid var(--color-gray-100);
 }
 
@@ -2331,7 +2333,7 @@ pre {white-space: pre-wrap;word-wrap: break-word;overflow-wrap: break-word;}
 	padding: 0;
 	font-size: 2.4rem;
 	font-weight: normal;
-	margin-bottom: 3rem;
+	margin-bottom: 0.5rem;
 	display: flex;
 	flex-direction: column-reverse;
 	align-items: center;
@@ -2346,7 +2348,7 @@ pre {white-space: pre-wrap;word-wrap: break-word;overflow-wrap: break-word;}
 }
 
 .how-to-use-slider {
-	max-width: 900px;
+	max-width: 1200px;
 	margin: 0 auto;
 }
 
@@ -2392,7 +2394,7 @@ pre {white-space: pre-wrap;word-wrap: break-word;overflow-wrap: break-word;}
 
 .step-image-placeholder {
 	width: 100%;
-	height: 100px;
+	height: 280px;
 	background: var(--color-pink-light);
 	border-radius: 0.4rem;
 	display: flex;
@@ -2404,11 +2406,27 @@ pre {white-space: pre-wrap;word-wrap: break-word;overflow-wrap: break-word;}
 	font-size: 1rem;
 }
 
-.step-image-placeholder img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
+.step-image-placeholder p {
+	margin: 0 !important;
+	padding: 0 !important;
+	width: 100% !important;
+	height: 100% !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+}
+
+.step-image-placeholder img,
+.step-image-placeholder p img {
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: contain !important;
 	border-radius: 0.4rem;
+	min-height: 200px !important;
+	max-width: 100% !important;
+	max-height: 100% !important;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+	filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1)) !important;
 }
 
 @media screen and (min-width: 768px) {
@@ -2426,7 +2444,7 @@ pre {white-space: pre-wrap;word-wrap: break-word;overflow-wrap: break-word;}
 	}
 	
 	.step-image-placeholder {
-		height: 120px;
+		height: 320px;
 	}
 }
 
